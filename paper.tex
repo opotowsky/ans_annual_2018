@@ -1,0 +1,90 @@
+\documentclass{anstrans}
+\title{Statistical Models for Nuclear Forensics Analysis}
+\author{Arrielle C. Opotowsky,$^{*}$ Charles F. Weber,$^{\dagger}$ and Paul P.H. Wilson,$^{*}$}
+
+\institute{
+$^{*}$Computational Nuclear Engineering Research Group, University of Wisconsin--Madison, Madison, WI, opotowsky@wisc.edu, paul.wilson@wisc.edu
+\and
+$^{\dagger}$Nuclear Security Modeling Group, Oak Ridge National Laboratory, Oak Ridge, TN, webercf@ornl.gov
+}
+
+\usepackage{graphicx}
+\usepackage{microtype}
+
+\begin{document}
+
+\section{Introduction}
+derp
+
+
+
+\section{Methodology}
+herro 
+
+\subsection{Training Set}
+This work begins by simulating the training and test sets described in ref
+(cite Dayman). As with the previous work, this will be done using SCALE 6.2
+\todo{cite}. Specifically, the ARP module of the activation and depletion code
+ORIGEN was used. \todo{add deets and citations}
+
+\todo{show table of training set space}
+The parameters of the training set are defined as follows. A smaller burnup
+than is typical for spent fuel from a commercial reactor is used in the
+previous work likely because stolen fuel pins for weapons use would not likely
+be at the end of their lifetime, as the plutonium of interest has decreased by
+then. A truly i.i.d. training set would go beyond this, but this is purely for
+demonstration with a single use case in mind. 
+
+\todo{show table of test set space}
+The previous work also used an external test set, designed to have values in
+between the trained values of burnup. This is implemented in this study but it
+is expected that cross-validation will better indicate the model performance.
+More specifically, using k-fold cross-validation is a common method to use in
+the application of machine learning to create more confidence in the resulting
+model. \todo{either explain or cite cross validation next}
+
+\subsection{Model evaluation}
+Additionally, machine learning algorithms are heavily dependent on the inputs
+and parameters given to them, such as training set sizes, learning rates,
+regularization, etc. To evaluate the performance or tweak the model from an
+algorithm, diagnostic plots will be used. Learning and validation curves will
+indicate how the models are performing, initially both with respect to the
+testing error and the cross validation error. As previously mentioned, these
+two errors are to be compared to the training error to understand the
+prediction and generalization strength with respect to training set size and
+the algorithm parameters governing model complexity. 
+
+The learning curves were obtained as follows. For a given (randomly chosen)
+training set size between 15 and 100\% of the total data set, several training
+and prediction rounds were performed. The repetition for obtaining the testing
+error is the same value as the \textit{k} in k-fold cross validation. The
+testing error scenario averages the values of the obtained errors whereas the
+k-fold cross-validation performs this automatically.  The validation curves
+were obtained as follows. For a given parameter, the value of the parameter is
+varied and \textit{k} training and prediction phases are completed, and their
+errors averaged. Again, for k-fold cross-validation, these errors are already
+averaged. The learning curves help determine if we are over- or under-training.
+The validation curves help determine the optimal way to be robust to over- and
+under-fitting. 
+
+\subsection{Model Comparison}
+
+\section{Results and Discussion}
+hello
+
+\section{Conclusion}
+oh hi
+
+\section{Acknowledgments} This material is based upon work supported by the
+National Science Foundation Graduate Research Fellowship and the U.S.
+Department of Homeland Security's Nuclear Forensics Graduate Research
+Fellowship under Grant Award Number, 2012- DN-130- NF0001. The views and
+conclusions contained in this document are those of the authors and should not
+be interpreted as representing the official policies, either expressed or
+implied, of the National Science Foundation or the U.S. Department of Homeland
+Security.
+
+\bibliographystyle{ans}
+\bibliography{paper}
+\end{document}
+
